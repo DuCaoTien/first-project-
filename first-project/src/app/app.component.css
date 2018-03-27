@@ -1,0 +1,15 @@
+.table thead tr th{
+text-align: center;
+}
+
+h2{
+    text-align: center;
+    color: #269900;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.table{
+    width: 70%;
+    margin: 0 auto;
+}
