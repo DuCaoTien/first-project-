@@ -9,21 +9,26 @@ import { PostsComponent } from './component/posts/posts.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AlbumComponent } from './component/album/album.component';
 import { PostService } from './service/post.service';
+import { AlbumService } from './service/album.service';
+import { HomeComponent } from './component/home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
     AlbumComponent,
+    HomeComponent,
     
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [PostService],
+  providers: [PostService,AlbumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

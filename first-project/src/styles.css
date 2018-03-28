@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background-image: url(https://www.digitalplatforms.co.za/wp-content/uploads/2015/11/Website-Design-Background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 1px;
+}
+

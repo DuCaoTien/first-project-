@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../models/post';
-import { POSTS } from '../../models/mock-post';
 import { PostService } from '../../service/post.service'
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  styleUrls: ['./posts.component.css'],
+  
 })
 export class PostsComponent implements OnInit {
   
@@ -28,6 +28,11 @@ export class PostsComponent implements OnInit {
   
   onSelect(post: Post): void {
     this.selectedPost = post;
+  }
+
+  delete(post :Post): void{
+    this.posts = this.posts.filter( p => p !== post);
+    this.postService.deletePost(post).subscribe();
   }
 
 }

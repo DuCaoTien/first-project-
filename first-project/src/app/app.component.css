@@ -1,15 +1,68 @@
 .table thead tr th{
 text-align: center;
+border: 0px;
 }
-
 h2{
     text-align: center;
-    color: #269900;
+    color: #80b53f;
     text-transform: uppercase;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+a {
+    color: #80b53f;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
 .table{
     width: 70%;
     margin: 0 auto;
+}
+.lead{
+    margin-top: 145px;
+}
+h1 {
+margin: 0;
+display: flex;
+justify-content: center;
+position: relative;
+line-height: 3em;
+}
+
+em {
+color: currentColor;
+font-size: 15vmin;
+position: relative;
+font-style: normal;
+width: 20vmin;
+text-align: center;
+}
+
+em.planet {
+-webkit-animation: planet-rotate 4s linear infinite;
+animation: planet-rotate 4s linear infinite;
+position: relative;
+}
+
+em.planet.left {
+-webkit-transform-origin: 40vmin 5vmin;
+transform-origin: 40vmin 5vmin;
+}
+
+em.planet.right {
+-webkit-transform-origin: -20vmin 5vmin;
+transform-origin: -20vmin 5vmin;
+}
+
+@-webkit-keyframes planet-rotate {
+to {
+    -webkit-transform: rotate(1turn);
+}
+}
+
+@keyframes planet-rotate {
+to {
+    transform: rotate(1turn);
+}
 }

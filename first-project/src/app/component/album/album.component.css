@@ -1,0 +1,8 @@
+h2, li  {
+    text-align: center;
+    list-style-type: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.album{
+    margin: 0 auto;
+}

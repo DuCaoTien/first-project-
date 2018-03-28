@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Album } from '../../models/album';
+import { AlbumService } from '../../service/album.service';
 
 @Component({
   selector: 'app-album',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlbumComponent implements OnInit {
 
-  constructor() { }
+  albums ;
+
+  selectedAlbum: Album;
+
+  constructor(private albumService: AlbumService) { }
 
   ngOnInit() {
+    this.getAlbums()
+  }
+  getAlbums():void{
+    this.albumService.getAlbums()
+    .subscribe(albums => 
+      this.albums = albums
+    );
+  }
+
+  onSelect(album: Album): void{
+    this.selectedAlbum = album;
   }
 
 }
