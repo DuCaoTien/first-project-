@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import {Post} from '../models/post';
+import {NgbdModalBasic} from '../modals/modal-basic'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -11,6 +12,10 @@ const httpOptions = {
 
 @Injectable()
 export class PostService {
+  [x: string]: any;
+  handleError<T>(arg0: any): any {
+    throw new Error("Method not implemented.");
+  }
   private postsUrl = 'https://jsonplaceholder.typicode.com/posts';
   constructor(
     private http: HttpClient,
@@ -29,10 +34,7 @@ export class PostService {
     const id = typeof post === 'number' ? post : post.id;
     const url = `{$this.postsUrl}/${id}`;
 
-    return this.http.delete<Post>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted post id=${id}`)),
-      catchError(this.handleError<Post>(this.deletePost))
-    );
+    return this.http.delete<Post>(url, httpOptions);
   }
-
+  
 }

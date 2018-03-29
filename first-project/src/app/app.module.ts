@@ -13,13 +13,13 @@ import { AlbumService } from './service/album.service';
 import { HomeComponent } from './component/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
     AlbumComponent,
     HomeComponent,
-    
   ],
   imports: [
     NgbModule.forRoot(),
@@ -29,6 +29,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule
   ],
   providers: [PostService,AlbumService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
