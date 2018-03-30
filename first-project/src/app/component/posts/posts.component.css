@@ -11,6 +11,8 @@
     list-style-type: none;
     padding: 0;
     width: 44em;
+    max-width: 100%;
+  
   }
   .posts li {
     cursor: pointer;
@@ -32,6 +34,10 @@
     color: #607D8B;
     background-color: #DDD;
     left: .1em;
+  }
+  .posts a:hover {
+    color:#607D8B;
+    text-decoration: none;
   }
   .posts .text {
     position: relative;
@@ -61,4 +67,7 @@
     float: right;
     margin-top: -5px;
     height:26px ;
+  }
+  a{
+    color: black;
   }

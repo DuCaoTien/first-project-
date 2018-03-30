@@ -1,32 +1,33 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-    <h1 class = "lead">
-      <em>W</em>
-      <em>e</em>
-      <em>l</em>
-      <em>c</em>
-      <em class="planet left">o</em>
-      <em>m</em>
-      <em>e</em>
-      <em>t</em>
-      <em class="planet right">o</em>
-    </h1>
-    <h1>{{ title }}!</h1>
-    <img src = "../assets/logo.jpg" width="150" height="150"/>
+<div class="app">
+  <div style="text-align:center">
+      <h1 class = "lead">
+        <em>W</em>
+        <em>e</em>
+        <em>l</em>
+        <em>c</em>
+        <em class="planet left">o</em>
+        <em>m</em>
+        <em>e</em>
+        <em>t</em>
+        <em class="planet right">o</em>
+      </h1>
+      <h1>{{ title }}!</h1>
+      <img src = "../assets/logo.jpg" width="150" height="150"/>
   </div>
-  <h2>Here are some functions to use: </h2>
-  <div class="table-reponsive">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th class="Home"><a routerLink = "/home">Home</a></th>
-          <th class="Album"><a routerLink = "/album">Album</a></th>
-          <th class="Post"><a routerLink = "/posts">Post</a></th>
-          </tr>
-      </thead>
-    </table>
-    <router-outlet></router-outlet>
-  </div>
+    <h2>Here are some functions to use: </h2>
+    <div class="table-reponsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="Home"><a routerLink = "/home">Home</a></th>
+            <th class="Album"><a routerLink = "/album">Album</a></th>
+            <th class="Post"><a routerLink = "/posts">Post</a></th>
+            </tr>
+        </thead>
+      </table>
+      <router-outlet></router-outlet>
+    </div>
+</div>
 
 
 

@@ -2,6 +2,7 @@ h2, li  {
     text-align: center;
     list-style-type: none;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: capitalize;
 }
 .album{
     margin: 0 auto;

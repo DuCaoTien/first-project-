@@ -1,32 +1,58 @@
 <h2>My Posts</h2>
-<ng-template #content let-c="close" let-d="dismiss">
+<ng-template #contentdelete let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title">Modal title</h4>
+    <h4 class="modal-title">DELETE POST</h4>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <p>One fine body&hellip;</p>
+    <p>Are you sure?</p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="delete(post)">OK</button>
+    <button class="btn btn-outline-dark" (click)="delete()" (click)="d('Cross click')">Yes</button>
+    <button class="btn btn-outline-dark" (click)="d('Cross click')">No Thanks!</button>
   </div>
 </ng-template>
+
+<ng-template #contentedit let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">EDIT POST</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <label>Title:
+            <input [(ngModel)] = "postNeedToEdit.title" placeholder="title"/>
+        </label>
+        <br>
+        <label>Body:
+            <input [(ngModel)] = "postNeedToEdit.body" placeholder="body"/>
+        </label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline-dark" (click)="save()" (click)="d('Cross click')">Save</button>
+      <button class="btn btn-outline-dark" (click)="d('Cross click')">No Thanks!</button>
+    </div>
+  </ng-template>
+
 <ul class="posts">
-  <li *ngFor = "let post of posts" 
-    [class.selected]="post === selectedPost"
-    (click) = "onSelect(post)">
-    <span class= "badge">{{post.id}}</span>{{post.title}}
-    <button class="edit" title="edit post" (click)="edit()">
-      <i class="fa fa-pencil" aria-hidden="true"></i>
-    </button>
-    <button class="" (click)="openDeleteConfirm(post, content)">
-      <i class="fa fa-trash" aria-hidden="true"></i>
-    </button>
+  <li *ngFor = "let post of posts" >
+    <a routerLink = "/post-detail/{{post.id}}">
+      <span class= "badge">{{post.id}}</span>{{post.title}}
+    </a>
+    <router-outlet></router-outlet>
+      <button class="edit" title="edit post" (click)="openEditConfirm(post, contentedit)">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </button>
+      <button class="delete" title="delete post" (click)="openDeleteConfirm(post, contentdelete)">
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </button>
   </li>
 </ul>
 
-  
-
+<app-post-detail [post]="selectedPost"></app-post-detail>
 

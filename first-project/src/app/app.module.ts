@@ -12,6 +12,7 @@ import { PostService } from './service/post.service';
 import { AlbumService } from './service/album.service';
 import { HomeComponent } from './component/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PostDetailComponent } from './component/post-detail/post-detail.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PostsComponent,
     AlbumComponent,
     HomeComponent,
+    PostDetailComponent,
   ],
   imports: [
     NgbModule.forRoot(),

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../../models/post';
+import { Location } from '@angular/common';
+
 import { PostService } from '../../service/post.service'
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdModalBasic } from '../../modals/modal-basic';
 
 @Component({
   selector: 'app-posts',
@@ -11,12 +12,17 @@ import { NgbdModalBasic } from '../../modals/modal-basic';
 
 })
 export class PostsComponent implements OnInit {
-
-  posts;
+  @Input() post: Post;
+  posts; title; body;
   closeResult: string;
   selectedPost: Post;
 
-  constructor(private postService: PostService, private modalService: NgbModal) { }
+  constructor(
+  
+    private postService: PostService,
+    private modalService: NgbModal,
+    private location: Location
+    ) { }
 
   ngOnInit() {
     this.getPosts()
@@ -31,8 +37,6 @@ export class PostsComponent implements OnInit {
   onSelect(post: Post): void {
     this.selectedPost = post;
   }
-
-  
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -43,22 +47,39 @@ export class PostsComponent implements OnInit {
     }
   }
 
+  public postNeedToDelete : Post = null;
   openDeleteConfirm(post: Post, confirmModal): void {
-   
-
+    this.postNeedToDelete = post;
     console.log('open modal', post, confirmModal, this.modalService)
-
     this.modalService.open(confirmModal).result.then((result) => {
       console.log(`Closed with: ${result}`);
     }, (reason) => {
-      //this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       console.log(`Dismissed ${this.getDismissReason(reason)}`);
     });
-
-  }
-  delete(post: Post):void {
-    this.posts = this.posts.filter( p => p !== post);
-    this.postService.deletePost(post).subscribe();
   }
 
+  public postNeedToEdit : Post = null;
+  openEditConfirm(post: Post, confirmModal): void {
+    this.postNeedToEdit = post;
+    console.log('open modal', post, confirmModal, this.modalService)
+    this.modalService.open(confirmModal).result.then((result) => {
+      console.log(`Closed with: ${result}`);
+    }, (reason) => {
+      console.log(`Dismissed ${this.getDismissReason(reason)}`);
+    });
+  }
+  
+
+  delete():void {
+    this.posts = this.posts.filter( p => p !== this.postNeedToDelete);
+    this.postService.deletePost(this.postNeedToDelete).subscribe();
+   
+  }
+  goBack(): void{
+    this.location.back();
+  }
+  save(): void{
+    this.postService.updatePost(this.postNeedToEdit)
+    .subscribe(() => this.goBack());
+  }
 }

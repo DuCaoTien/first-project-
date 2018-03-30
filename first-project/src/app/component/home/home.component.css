@@ -1,3 +1,4 @@
+
 h3 {
     padding: 0.5em;
     text-align: center;
@@ -7,8 +8,9 @@ h3 {
 }
 h4 {
     position: relative;
-    font-size: 15px;
+    font-size: 14px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: capitalize;
     
 }
 *[class*='col-'] {
@@ -66,3 +68,4 @@ width: 50%;
         min-width: 60px;
       }
 }
+

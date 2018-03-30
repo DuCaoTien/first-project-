@@ -1,0 +1,26 @@
+h4{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+p{
+    padding-left: 2px;
+    text-transform: lowercase;
+}
+.form-dynamic{
+    text-align: center;
+}
+label{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+input{
+    width: 100%;
+}
+.first{
+    margin-left: 9px;
+}
+.post-detail{
+    margin-top: 20px;
+    background: whitesmoke;
+    height: 9em;
+}
+
